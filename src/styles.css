@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+.product {
+    height: 200px;
+    margin: 0 auto;
+}
+
+.bg-light-gray {
+    background-color: #CBCBCB;
+}
+
+.producto {
+    border: 1px solid #CBCBCB;
+    border-radius: 20px;
+}
+
+.producto:hover {
+    border-color: darkslategrey;
+}
+
+.departamento {
+    height: 70vh;
+    border: 1px solid #CBCBCB;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.departamento:hover {
+    border-color: darkslategrey;
+}
+
+.nomDep {
+    background-color: rgba(255,255,255, 0.5);
+}

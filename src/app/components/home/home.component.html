@@ -25,7 +25,47 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="container pt-4">
-        
+    <div class="mx-5 p-5 bg-white">
+        <h2 class="display-4 text-center text-light bg-dark p-2">Nuestros departamentos</h2>
+
+        <div class="pt-3 px-3">
+            <div class="row my-5" *ngFor="let department of departments;">
+                <h3 class="text-center mb-5 py-2 col-12 bg-light-gray rounded-pill">{{department}}</h3>
+                <div *ngFor="let samples of muestras;" class="col-12 row" >
+                    <div *ngFor="let sample of samples" class="producto shadow col m-3 px-4 py-3" [ngClass]="{'d-none' : sample['department'] != department}">
+                        <div *ngIf="sample['department'] == department" >
+                            <h5 class="m-2">{{sample['model']}} <br> <small>{{sample['brand']}}</small> </h5>
+                            <div class="col-12 text-center mt-3">
+                                <img src="../../../{{sample['img']}}" alt="" class="product">
+                            </div>
+                            <p class="text-success h3 text-center my-4">${{sample['price']}}.00</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="h6">Descripción:</p>
+                                    <ul class="text-muted">
+                                        <li *ngFor="let description of sample['description']; let i = index" [ngClass]="{'d-none' : i > 1}">{{description}}</li>
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                                <div class="col text-center ml-3">
+                                    <div class="row">
+                                        <p class="h6">Rating: &nbsp; <span class="text-muted">{{sample['rating']}}</span></p>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <p class="h6">MSI: &nbsp;  <span class="text-success" *ngIf="sample['msi']">Si</span><span class="text-danger" *ngIf="!sample['msi']">No</span></p>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btn-success mt-4 rounded-pill px-3">Ver producto</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary btn-lg rounded-pill mt-4">Ver departamento</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

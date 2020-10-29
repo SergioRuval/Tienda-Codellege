@@ -1,0 +1,38 @@
+<div class="container">
+    <h2 class="display-3 text-center mt-4">Todos nuestros productos</h2>
+    <div class="row mt-5" *ngFor="let department of departments">
+        <h3 class="text-center mb-5 py-2 col-12 bg-light-gray rounded-pill">
+            {{ department }}
+        </h3>
+        <div class="row row-cols-3">
+            <div class="col mb-4" *ngFor="let product of productos;">
+              <div class="card h-100" *ngIf="product['department'] == department">
+                <div class="card-body">
+                  <h5 class="card-title">{{product['model']}} <br> <small>{{product['brand']}}</small></h5>
+                  <div class="text-center w-100 my-4">
+                    <img src="../../../{{product['img']}}" class="product" alt="...">
+                  </div>
+                  <h5 class="col-12 text-center text-success">${{product['price']}}.00</h5>
+                  <div class="card-text">
+                      <p class="h6">Descripción: </p>
+                      <ul>
+                          <li *ngFor="let description of product['description'];">{{description}}</li>
+                      </ul>
+                  </div>
+                  <div class="row row-cols-2 text-center mt-4">
+                      <div class="col">
+                        <p class="h6">Rating: &nbsp; <span class="text-muted">{{product['rating']}}</span></p>
+                      </div>
+                      <div class="col">
+                        <p class="h6">MSI: &nbsp;  <span class="text-success" *ngIf="product['msi']">Si</span><span class="text-danger" *ngIf="!product['msi']">No</span></p>
+                      </div>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button class="btn btn-success btn-block rounded-pill">Ver Producto</button>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

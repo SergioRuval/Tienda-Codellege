@@ -10,6 +10,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 //Rutas
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
@@ -18,14 +20,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     NavbarComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    DepartmentsComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'home', component: HomeComponent},
-      {path: 'about', component: AboutComponent}
+      {path: 'about', component: AboutComponent},
+      {path: 'departments', component: DepartmentsComponent},
+      {path: 'products', component: ProductsComponent}
     ]),
     NgbModule
   ],

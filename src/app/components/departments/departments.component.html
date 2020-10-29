@@ -1,0 +1,10 @@
+<div class="mx-5 px-5 mt-5">
+    <div class="row">
+        <div class="col departamento text-center mx-3" *ngFor="let department of departments" [ngStyle]="{'background-image': getUrl(department)}">
+            <h2 class="display-4 mt-5 font-weight-bold nomDep">{{department}}</h2>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <button class="btn btn-primary btn-block btn-lg rounded-pill" [routerLink]="['/products']">Ver todos los productos</button>
+    </div>
+</div>
